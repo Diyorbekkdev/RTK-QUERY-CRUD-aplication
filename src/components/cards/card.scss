@@ -1,0 +1,94 @@
+.card {
+  position: relative;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8.5px);
+  max-width: 350px;
+  height: 450px;
+  &__info {
+    position: relative;
+    z-index: 3;
+    padding: 10px;
+    &--main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .title {
+        font-family: "Hauora";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 112.6%;
+        color: var(--white-white, #fff);
+      }
+      .brend {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: bold;
+        line-height: 112.6%;
+        color: var(--white-white, #158f29);
+      }
+    }
+    .line {
+      width: 100%;
+      height: 1px;
+      background: #bbb;
+    }
+    .desc {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 100%;
+      color: var(--white-white, #fff);
+      opacity: 0.800000011920929;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card__reting__price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .price {
+        color: white;
+      }
+      .reting {
+        color: #f09319;
+        font-weight: bold;
+      }
+    }
+    .card__btns {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      button {
+        background: #158f29;
+        cursor: pointer;
+        font-family: "Hauora";
+        &:hover{
+            background: #18bd33;
+        }
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+  }
+  .bg_bottom {
+    width: 100%;
+    top: 250px;
+    right: 0;
+    position: absolute;
+    border-radius: 16px;
+  }
+  .bg_top {
+    top: 108.5px;
+    position: absolute;
+    width: 100%;
+    border-radius: 16px;
+  }
+}

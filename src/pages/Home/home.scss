@@ -1,0 +1,193 @@
+@import "../../style/mixins.scss";
+.hero {
+  position: relative;
+  background: var(
+    --gradients-main-bg,
+    linear-gradient(359deg, #0c111c 0%, rgba(13, 25, 27, 0.4) 100%),
+    url("../../assets/images/hero=bg.png"),
+    lightgray -30px 0px / 104.167% 117.955% no-repeat
+  );
+  background-size: cover;
+  &__wrapper {
+    padding: 225px 0;
+    @extend %df;
+    @include media(958px) {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    &--left {
+      width: 50%;
+      @include media(958px) {
+        width: 80%;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.24);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.13);
+      }
+      @include media(400px) {
+        width: 100%;
+      }
+      h1 {
+        font-family: "Poppins";
+        font-size: 56px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 61px;
+        background: var(
+          --gradients-title,
+          linear-gradient(138deg, #fff 0%, rgba(176, 250, 255, 0) 100%)
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      p {
+        margin-top: 16px;
+        font-family: "Hauora";
+        color: var(--white-white, #fff);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 32px;
+        opacity: 0.800000011920929;
+      }
+    }
+    &--right {
+      position: relative;
+      z-index: 2;
+      img {
+        width: 100%;
+        animation: animate 3s infinite;
+      }
+    }
+  }
+  .earth {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    z-index: 1;
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.products {
+  background: url("../../assets/images/product-bg.png") center center, no-repeat;
+  background-size: cover;
+  height: 100%;
+  .products__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    @include media(1090px) {
+      place-items: center;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media(657px) {
+      place-items: center;
+      grid-template-columns: 1fr;
+    }
+  }
+  .pagination__wrapper {
+    margin-top: 100px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+  .shop_cart_board {
+    position: fixed;
+    width: 500px;
+    right: 0;
+    height: 100%;
+    z-index: 10;
+    background: red !important;
+  }
+}
+.shopping_cards__wrapper {
+  .shop_card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 600px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .shop_card--main {
+      padding: 15px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 4px 4px 55px -21px rgba(34, 60, 80, 0.2);
+      .img_container {
+        width: 100px;
+        height: 100px;
+        background: red;
+        border-radius: 10px;
+        background-size: cover;
+      }
+      .description {
+        max-width: 250px;
+        color: var(--white-white, #242323);
+        font-family: "Hauora";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 32px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .price{
+        font-family: "Hauora";
+        font-size: 18px;
+        span{
+          color: orange;
+        }
+      }
+      .quantity_buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        .quantity_button{
+          display: flex;
+          border: 1px solid #bbb;
+          background: green;
+          border-radius: 5px;
+          button{
+            width: 40px;
+            border: none;
+            background: transparent;
+            outline: none;
+            cursor: pointer;
+            color: #fff;
+            padding: 5px;
+          }
+          .quatity{
+            border-right: 1px solid #bbb;
+            border-left: 1px solid #bbb;
+          }
+        }
+      }
+    }
+  }
+}

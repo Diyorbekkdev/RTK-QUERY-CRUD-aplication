@@ -1,0 +1,85 @@
+@import "../../../style//mixins.scss";
+.header {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  padding: 13px 0;
+  background: var(
+    --gradients-menu,
+    linear-gradient(
+      183deg,
+      rgba(0, 255, 163, 0.12) 0%,
+      rgba(31, 26, 255, 0.2) 100%
+    )
+  );
+  box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.05);
+  &__nav {
+    @extend %df;
+    align-items: center !important;
+    &--list {
+      display: flex;
+      align-items: center;
+      gap: 43px;
+      margin: 0;
+      li {
+        a {
+          @extend %nav-link;
+        }
+      }
+    }
+    .active {
+      color: #fff;
+    }
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      .language_action {
+        padding: 5px 10px;
+        @extend %df;
+        gap: 5px;
+        border-radius: 8px;
+        background: var(--white-white-15, rgba(255, 255, 255, 0.15));
+        box-shadow: 0px 4px 9px 0px rgba(176, 176, 176, 0.1);
+        backdrop-filter: blur(4px);
+        select {
+          background: transparent;
+          border: none;
+          color: var(--white-white, #fff);
+          font-family: "Hauora";
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          text-transform: uppercase;
+        }
+      }
+      .add_cart {
+        padding: 5px 10px;
+        @extend %df;
+        align-items: center !important;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        outline: none; 
+        cursor: pointer;
+        border-radius: 8px;
+        background: var(--white-white-15, rgba(255, 255, 255, 0.15));
+        box-shadow: 0px 4px 9px 0px rgba(176, 176, 176, 0.1);
+        backdrop-filter: blur(4px);
+        .cart {
+          margin: 0;
+          color: var(--white-white, #fff);
+          font-family: "Hauora";
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
