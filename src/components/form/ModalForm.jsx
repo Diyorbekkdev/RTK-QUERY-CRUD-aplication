@@ -2,30 +2,45 @@ import { Modal, Form, Input, InputNumber, Rate } from "antd";
 // import { Form } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import { useCreateProductMutation, useUpdateProductMutation } from "../../redux/services/productService";
+import {
+  useCreateProductMutation,
+  useUpdateProductMutation,
+} from "../../redux/services/productService";
+
 const FormModal = ({ visible, onCancel, data, productId }) => {
   const [addCard] = useCreateProductMutation();
   const [editCard] = useUpdateProductMutation();
   const [selected, setSelected] = useState(null);
+
   const [form] = Form.useForm();
 
   useEffect(() => {
     setSelected(productId);
   }, [productId]);
+
+  useEffect(() => {
+    setSelected(productId);
+    if (visible && !productId) {
+      form.resetFields();
+    } else if (data) {
+      form.setFieldsValue(data);
+    }
+  }, [data, form, visible, productId]);
+
   const onFinish = async (values) => {
-    console.log("Form data:", values);
     try {
       if (selected) {
-        await editCard({selected, values});
-        console.log(selected);
-        }else{
-          await addCard(values);
+        await editCard(selected, values);
+        onCancel();
+      } else {
+        await addCard(values);
+        onCancel();
       }
     } catch (err) {
       console.log(err);
     }
   };
-  
+
   return (
     <Modal
       open={visible}

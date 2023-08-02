@@ -1,8 +1,5 @@
 import {  useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-
-// import {DeleteOutlined} from '@ant-design/icons'
-// import { useDispatch, useSelector } from "react-redux";
 //icons
 import logo from "../../../assets/icons/logo.svg";
 import language from "../../../assets/icons/language.svg";
@@ -10,16 +7,9 @@ import cart_icon from "../../../assets/icons/shop-cart.png";
 //style
 import "./header.scss";
 import { Modal} from "antd";
-// import { getProducts } from "../../../redux/slices/productsSlice";
 const Header = () => {
   const [open, setOpen] = useState(false);
-  // const dispatch = useDispatch();
 
-  // const { cart } = useSelector((state) => state.products);
-
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, [dispatch]);
 
   return (
     <header className="header">

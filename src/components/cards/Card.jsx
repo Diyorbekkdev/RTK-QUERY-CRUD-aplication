@@ -1,5 +1,5 @@
 import { Button, Rate } from "antd";
-import {EyeOutlined, ShoppingCartOutlined} from '@ant-design/icons'
+import {DeleteOutlined, EditOutlined} from '@ant-design/icons'
 import PropTypes from "prop-types";
 
 import bg_card from '../../assets/images/card-bg.svg';
@@ -25,8 +25,8 @@ const Card = ({title, brend, description, reting, price, img, click, del }) => {
           </p>
         </div>
         <div className="card__btns">
-          <Button icon={<EyeOutlined />}  type="primary" onClick={del}>See Product</Button>
-          <Button icon={<ShoppingCartOutlined/>} onClick={click} type="primary">Add to Cart</Button>
+          <Button icon={<DeleteOutlined/>}  type="primary" onClick={del}>Delete</Button>
+          <Button icon={<EditOutlined />} onClick={click} type="primary">Edit</Button>
         </div>
       </div>
       <img className="bg_bottom" src={bg_card} alt="" />

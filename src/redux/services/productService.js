@@ -6,12 +6,14 @@ const productServices = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://64ca47f5700d50e3c704a232.mockapi.io/products/",
   }),
+  tagTypes: ["Product"],
   endpoints: (builder) => ({
     getProducts: builder.query({
       query: ({ search }) => {
         return `products?title=${search}`;
       },
-      // transformResponse: (res) => res.sort((a, b) => b.id - a.id),
+    //   transformResponse: (res) => res.sort((a, b) => b.id - a.id),
+      providesTags:["Product"],
     }),
     createProduct: builder.mutation({
       query: (newProduct) => ({
@@ -19,20 +21,24 @@ const productServices = createApi({
         method: "POST",
         body: newProduct,
       }),
+      invalidatesTags:["Product"],
     }),
+
     updateProduct: builder.mutation({
       query: (body, productId) => ({
         url: `products/${productId}`,
         method: "PUT",
         body,
       }),
+      invalidatesTags: ["Product"],
     }),
+
     deleteProduct: builder.mutation({
         query: (productId) => ({
           url: `products/${productId}`,
           method: "DELETE",
         }),
-        // invalidatesTags: ["Category"],
+        invalidatesTags:["Product"],
       }),
   }),
 });
