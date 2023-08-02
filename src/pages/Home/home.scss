@@ -91,6 +91,7 @@
   background-size: cover;
   height: 100%;
   .products__row {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;

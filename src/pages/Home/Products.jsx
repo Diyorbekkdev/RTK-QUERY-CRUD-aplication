@@ -80,7 +80,7 @@ const Products = () => {
         </div>
         <div className="products__row">
           {isLoading ? (
-            <div>
+            <div style={{position: 'absolute', left: '50%'}}>
               <Spin />
             </div>
           ) : (
